@@ -2,19 +2,20 @@ import React, { useState } from 'react';
 
 export const Login = (props) => {
   const [email, setEmail] = useState('');
-  const [pass, sePass] = useState('');
+  const [pass, setPass] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(email);
   };
 
-  return ( 
+  return (  
     <div className="auth-form-container">
       <h2>Login</h2>
       <form className="login-form" onSubmit={handleSubmit}>
         <label htmlFor="email">email</label>
         <input
+        onChange={e => setEmail(e.target.value)}
           value={email}
           type="email"
           placeholder="youremail@gmail.com"
@@ -23,6 +24,7 @@ export const Login = (props) => {
         />
         <label htmlFor="password"> password </label>
         <input
+        onChange={e => setPass(e.target.value)}
           value={pass}
           type="password"
           placeholder="********"

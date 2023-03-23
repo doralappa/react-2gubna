@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 export const Register = (props) => {
   const [email, setEmail] = useState('');
-  const [pass, sePass] = useState('');
+  const [pass, setPass] = useState('');
   const [name, setName] = useState('');
 
   const handleSubmit = (e) => {
@@ -15,9 +15,15 @@ export const Register = (props) => {
       <h2>Register</h2>
       <form className="register-form" onSubmit={handleSubmit}>
         <label htmlFor="name"> Full Name </label>
-        <input value={name} name="name" id="name" placeholder="Full Name" />
+        <input 
+        onChange={e => setName(e.target.value)}
+        value={name} 
+        name="name" 
+        id="name" 
+        placeholder="Full Name" />
         <label htmlFor="email">email</label>
         <input
+        onChange={e => setEmail(e.target.value)}
           value={email}
           type="email"
           placeholder="youremail@gmail.com"
@@ -26,6 +32,7 @@ export const Register = (props) => {
         />
         <label htmlFor="password"> password </label>
         <input
+        onChange={e => setPass(e.target.value)}
           value={pass}
           type="password"
           placeholder="********"
